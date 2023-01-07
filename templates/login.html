@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>{{ title }}</title>
+</head>
+<body>
+<div class="title">
+    <h2>Welcome</h2>
+</div>
+<div class="f">
+  <form action="/" method="post">
+    <p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for msg in messages %}
+        <p style="color: red;">{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    </p>
+    <input type="text" name="score" id="score" placeholder="Enter score (exmpl - 2:0)">
+    <br><br>
+    <input type="submit" name="enter" id="enter" value="enter">
+</form>   
+</div>
+<div class="main">
+<div class="first">
+  <table>
+<colgroup>
+  <col span="5" style="background:Khaki">
+</colgroup>
+<tr>
+  <th>№ of Round</th>
+  <th>Date of match</th>
+  <th>First team</th>
+  <th>Second team</th>
+  <th>Score</th>
+</tr>
+{% for j in show %}
+<tr>
+  <td>{{ j[0] }}</td>
+  <td>{{ j[1] }}</td>
+  <td>{{ j[2] }}</td>
+  <td>{{ j[3] }}</td>
+  <td>{{ j[4] }}</td>
+</tr>
+{% endfor %}
+</table>  
+</div>
+</div>
+</body>
+</html>

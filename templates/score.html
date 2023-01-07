@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>{{ title }}</title>
+</head>
+<body>
+<div class="title">
+    <h2>Here is results...</h2>
+</div>
+<a href="/">Return to main page!</a>
+<div class="main">
+<div class="first">
+  <table>
+<colgroup>
+  <col span="5" style="background:Khaki">
+</colgroup>
+<tr>
+  <th>№ of Round</th>
+  <th>Date of match</th>
+  <th>First team</th>
+  <th>Second team</th>
+  <th>Score</th>
+</tr>
+{% for j in score_information %}
+<tr>
+  <td>{{ j[0] }}</td>
+  <td>{{ j[1] }}</td>
+  <td>{{ j[2] }}</td>
+  <td>{{ j[3] }}</td>
+  <td>{{ j[4] }}</td>
+</tr>
+{% endfor %}
+</table>  
+</div>
+</div>
+</body>
+</html>
